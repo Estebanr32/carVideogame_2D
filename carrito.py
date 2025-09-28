@@ -89,14 +89,75 @@ class Carrito:
         """Verifica si el carrito aún tiene energía"""
         return self.energia > 0
     
+    def dibujar_carrito_programatico(self, screen, x, y):
+        """Dibuja un carrito detallado programáticamente"""
+        # Colores
+        color_cuerpo = self.color_actual
+        color_rueda = (50, 50, 50)
+        color_llanta = (30, 30, 30)
+        color_parabrisas = (100, 150, 255)
+        color_faro = (255, 255, 150)
+        color_detalle = (200, 200, 200)
+        
+        # Dimensiones
+        ancho = self.size
+        alto = int(self.size * 0.7)
+        half_w = ancho // 2
+        half_h = alto // 2
+        
+        # 1. Cuerpo principal del auto
+        cuerpo_rect = (x - half_w + 3, y - half_h + 5, ancho - 6, alto - 10)
+        pygame.draw.rect(screen, color_cuerpo, cuerpo_rect)
+        pygame.draw.rect(screen, WHITE, cuerpo_rect, 2)
+        
+        # 2. Capó (parte delantera)
+        capo_rect = (x + half_w - 8, y - half_h + 7, 6, alto - 14)
+        pygame.draw.rect(screen, color_cuerpo, capo_rect)
+        pygame.draw.rect(screen, WHITE, capo_rect, 1)
+        
+        # 3. Parabrisas
+        parabrisas_rect = (x - half_w + 8, y - half_h + 8, ancho - 20, 8)
+        pygame.draw.rect(screen, color_parabrisas, parabrisas_rect)
+        
+        # 4. Ruedas
+        # Rueda trasera
+        rueda_trasera_pos = (x - half_w + 8, y + half_h - 3)
+        pygame.draw.circle(screen, color_rueda, rueda_trasera_pos, 6)
+        pygame.draw.circle(screen, color_llanta, rueda_trasera_pos, 4)
+        
+        # Rueda delantera
+        rueda_delantera_pos = (x + half_w - 8, y + half_h - 3)
+        pygame.draw.circle(screen, color_rueda, rueda_delantera_pos, 6)
+        pygame.draw.circle(screen, color_llanta, rueda_delantera_pos, 4)
+        
+        # 5. Faros delanteros
+        faro1_pos = (x + half_w - 2, y - 3)
+        faro2_pos = (x + half_w - 2, y + 3)
+        pygame.draw.circle(screen, color_faro, faro1_pos, 2)
+        pygame.draw.circle(screen, color_faro, faro2_pos, 2)
+        
+        # 6. Detalles adicionales
+        # Línea central
+        pygame.draw.line(screen, color_detalle, 
+                        (x - half_w + 5, y), (x + half_w - 5, y), 1)
+        
+        # Ventanas laterales
+        ventana_izq = (x - half_w + 5, y - half_h + 10, 4, alto - 22)
+        ventana_der = (x + half_w - 9, y - half_h + 10, 4, alto - 22)
+        pygame.draw.rect(screen, color_parabrisas, ventana_izq)
+        pygame.draw.rect(screen, color_parabrisas, ventana_der)
+        
+        # 7. Efectos especiales cuando salta
+        if self.saltando:
+            # Estela de salto
+            for i in range(3):
+                pygame.draw.rect(screen, (255, 255, 0, 100), 
+                               (x - half_w + 3 - i*2, y - half_h + 5 + i, 
+                                ancho - 6, alto - 10), 1)
+    
     def draw(self, screen):
         """Dibuja el carrito en pantalla"""
         x, y = self.get_screen_position()
         
-        # Dibujar carrito como rectángulo
-        pygame.draw.rect(screen, self.color_actual, 
-                        (x - self.size//2, y - self.size//2, self.size, self.size))
-        
-        # Borde blanco
-        pygame.draw.rect(screen, WHITE, 
-                        (x - self.size//2, y - self.size//2, self.size, self.size), 2)
+        # Dibujar carrito programáticamente (¡mucho mejor que un cuadrado!)
+        self.dibujar_carrito_programatico(screen, x, y)
