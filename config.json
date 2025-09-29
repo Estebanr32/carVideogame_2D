@@ -1,0 +1,32 @@
+{
+    "config": {
+      "distancia_total": 2000,
+      "velocidad": 10,
+      "refresco_ms": 200,
+      "salto_altura": 50,
+      "color_carrito": "azul"
+    },
+    "obstaculos": [
+      {"x": 150, "y": 1, "tipo": "roca"},
+      {"x": 300, "y": 4, "tipo": "cono"},
+      {"x": 500, "y": 2, "tipo": "hueco"},
+      {"x": 1200, "y": 3, "tipo": "aceite"},
+      {"x": 800, "y": 0, "tipo": "roca"},
+      {"x": 1000, "y": 5, "tipo": "cono"},
+      {"x": 1400, "y": 1, "tipo": "hueco"},
+      {"x": 600, "y": 4, "tipo": "aceite"},
+      {"x": 900, "y": 2, "tipo": "roca"},
+      {"x": 1100, "y": 3, "tipo": "cono"},
+      {"x": 1300, "y": 5, "tipo": "hueco"},
+      {"x": 1500, "y": 0, "tipo": "aceite"},
+      {"x": 700, "y": 4, "tipo": "roca"},
+      {"x": 1600, "y": 1, "tipo": "cono"},
+      {"x": 1800, "y": 3, "tipo": "hueco"},
+      {"x": 400, "y": 5, "tipo": "roca"},
+      {"x": 750, "y": 0, "tipo": "aceite"},
+      {"x": 1050, "y": 4, "tipo": "hueco"},
+      {"x": 1350, "y": 2, "tipo": "cono"},
+      {"x": 1650, "y": 5, "tipo": "roca"}
+    ]
+  }
+  
