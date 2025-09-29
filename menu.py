@@ -156,33 +156,33 @@ class MenuPrincipal:
         pygame.draw.rect(self.screen, GOLD, panel_rect, 4)
         
         # Título de instrucciones
-        titulo = self.font_subtitle.render("INSTRUCCIONES", True, GOLD)
+        titulo = self.font_subtitle.render("INSTRUCTIONS", True, GOLD)
         titulo_rect = titulo.get_rect(center=(self.SCREEN_WIDTH//2, 120))
         self.screen.blit(titulo, titulo_rect)
         
         # Lista de instrucciones
         instrucciones = [
-            "🎮 CONTROLES:",
-            "  ↑↓ - Cambiar de carril (6 carriles disponibles)",
-            "  ESPACIO - Saltar obstáculos",
-            "  ENTER - Iniciar juego rápido",
+            "🎮 CONTROLS:",
+            "  ↑↓ - Change lanes (6 lanes available)",
+            "  SPACE - Jump over obstacles",
+            "  ENTER - Start game quickly",
             "",
-            "🌳 VISUALIZACIONES DEL ÁRBOL AVL:",
-            "  V - Ver estructura del árbol en tiempo real",
-            "  E - Mostrar estadísticas del árbol",
-            "  T - Recorridos gráficos (Inorden/Preorden/Postorden)",
-            "  I - Insertar obstáculos dinámicamente",
-            "  C - Cerrar visualizaciones",
+            "🌳 AVL TREE VISUALIZATIONS:",
+            "  V - View tree structure in real time",
+            "  E - Show tree statistics",
+            "  T - Graphical traversals (Inorder/Preorder/Postorder)",
+            "  I - Insert obstacles dynamically",
+            "  C - Close visualizations",
             "",
-            "🎯 OBJETIVO:",
-            "  Llegar al final evitando obstáculos",
-            "  Los obstáculos se gestionan con un Árbol AVL",
-            "  ¡Observa cómo se balancea automáticamente!",
+            "🎯 OBJECTIVE:",
+            "  Reach the end avoiding obstacles",
+            "  Obstacles are managed with an AVL Tree",
+            "  Watch how it balances automatically!",
             "",
-            "💡 El carrito pierde energía al chocar",
-            "🏁 Completa los 2000m para ganar",
+            "💡 The car loses energy when crashing",
+            "🏁 Complete 2000m to win",
             "",
-            "Haz click o presiona ESC para volver"
+            "Click or press ESC to return"
         ]
         
         y_start = 160
@@ -215,12 +215,12 @@ class MenuPrincipal:
             
             if not self.mostrar_instrucciones:
                 # Dibujar botones
-                self.dibujar_boton('jugar', self.botones['jugar'], "JUGAR")
-                self.dibujar_boton('instrucciones', self.botones['instrucciones'], "INSTRUCCIONES")
-                self.dibujar_boton('salir', self.botones['salir'], "SALIR")
+                self.dibujar_boton('jugar', self.botones['jugar'], "PLAY")
+                self.dibujar_boton('instrucciones', self.botones['instrucciones'], "INSTRUCTIONS")
+                self.dibujar_boton('salir', self.botones['salir'], "EXIT")
                 
                 # Texto informativo
-                info = self.font_small.render("Usa el mouse o las teclas ENTER/I/ESC", True, SILVER)
+                info = self.font_small.render("Use mouse or ENTER/I/ESC keys", True, SILVER)
                 info_rect = info.get_rect(center=(self.SCREEN_WIDTH//2, self.SCREEN_HEIGHT - 30))
                 self.screen.blit(info, info_rect)
             else:
